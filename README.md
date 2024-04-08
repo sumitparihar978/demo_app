@@ -22,3 +22,13 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+
+# commands to run
+
+* bundle install
+* manage database yml accordingly
+* rake db:create
+* rake db:migrate
+* rake db:seed
