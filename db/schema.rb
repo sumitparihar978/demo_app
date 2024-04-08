@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2024_04_08_053734) do
   end
 
   create_table "rewards", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "points"
+    t.string "points", default: "0"
     t.string "special_reward"
     t.uuid "user_id"
     t.boolean "rewarded", default: false
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2024_04_08_053734) do
     t.float "amount", default: 0.0
     t.uuid "user_id"
     t.integer "points", default: 0
+    t.string "country_name"
     t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -56,14 +57,15 @@ ActiveRecord::Schema.define(version: 2024_04_08_053734) do
     t.string "email"
     t.string "country_name"
     t.integer "total_points", default: 0
+    t.datetime "points_last_reset_at"
+    t.datetime "birth_date"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "wallets", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.float "amount"
+    t.float "amount", default: 0.0
     t.uuid "user_id"
-    t.text "note"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_wallets_on_user_id"

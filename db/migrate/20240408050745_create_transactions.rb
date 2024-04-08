@@ -4,6 +4,7 @@ class CreateTransactions < ActiveRecord::Migration[6.0]
 			t.float :amount, default: 0.0
 			t.references :user, foreign_key: true, type: :uuid, index: true
 			t.integer :points, default: 0
+			t.string :country_name
 			t.text :note
 
 			t.timestamps

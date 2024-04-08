@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+	include UserRewards
 	#
 	# associations
 	#
@@ -15,10 +16,8 @@ class User < ApplicationRecord
 
 	before_create :get_standard_plan
 
-	private
+	#
+	# methods
+	#
 
-	def get_standard_plan
-		plan = Plan.get_standard_plan
-		up = self.build_user_plan(plan: plan)
-	end
 end
